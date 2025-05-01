@@ -96,7 +96,17 @@ button {
 }
 
         @media (max-width: 768px) {
-            height: 200px; /* Высота карты */
-            width: 70%; /* Ширина карты */
-            transition: transform 0.3s ease;
+    .thumbnail {
+    width: 150px; /* Ширина миниатюры */
+    height: 95px; /* Высота миниатюры */
+    margin: 0 10px;
+    object-fit: cover;
+    transition: transform 0.1s;
+}
+            button {
+    margin: 20px;
+    padding: 5px 10px;
+    font-size: 8px;
+    cursor: pointer;
+}
         }
