@@ -97,9 +97,9 @@ button {
 
         @media (max-width: 768px) {
     .thumbnail {
-    width: 150px; /* Ширина миниатюры */
-    height: 95px; /* Высота миниатюры */
-    margin: 0 10px;
+    width: 190px; /* Ширина миниатюры */
+    height: 135px; /* Высота миниатюры */
+    margin: 0 5px;
     object-fit: cover;
     transition: transform 0.1s;
 }
