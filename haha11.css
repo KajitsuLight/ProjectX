@@ -97,14 +97,14 @@ button {
 
         @media (max-width: 768px) {
     .thumbnail {
-    width: 190px; /* Ширина миниатюры */
-    height: 135px; /* Высота миниатюры */
+    width: 230px; /* Ширина миниатюры */
+    height: 155px; /* Высота миниатюры */
     margin: 0 5px;
     object-fit: cover;
     transition: transform 0.1s;
 }
             button {
-    margin: 20px;
+    margin: 5px;
     padding: 5px 10px;
     font-size: 8px;
     cursor: pointer;
