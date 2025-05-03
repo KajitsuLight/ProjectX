@@ -118,8 +118,8 @@ button {
 
 @media (max-width: 768px) {
     .thumbnail {
-    width: 230px; /* Ширина миниатюры */
-    height: 155px; /* Высота миниатюры */
+    width: 130px; /* Ширина миниатюры */
+    height: 95px; /* Высота миниатюры */
     margin: 0 5px;
     object-fit: cover;
     transition: transform 0.1s;
