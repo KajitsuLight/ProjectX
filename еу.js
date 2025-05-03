@@ -25,6 +25,41 @@ nextButton.addEventListener('click', () => handleScroll(1));
 prevButton1.addEventListener('click', () => handleScroll(-1));
 prevButton.addEventListener('click', () => handleScroll(-1));
 
+let startX;
+let isDragging = false;
+
+gallery.addEventListener('mousedown', (e) => {
+    startX = e.pageX;
+    isDragging = true; // Устанавливаем флаг перетаскивания
+    gallery.style.transition = 'none'; // Отключаем анимацию
+});
+
+gallery.addEventListener('mousemove', (e) => {
+    if (!isDragging) return; // Если не перетаскиваем, выходим
+    const endX = e.pageX;
+    const distance = startX - endX; // Рассчитываем расстояние перемещения
+    if (distance > 50) {
+        // Перетаскивание влево
+        handleScroll(1);
+        startX = endX; // Обновляем начальную позицию
+    } else if (distance < -50) {
+        // Перетаскивание вправо
+        handleScroll(-1);
+        startX = endX; // Обновляем начальную позицию
+    }
+});
+
+gallery.addEventListener('mouseup', () => {
+    isDragging = false; // Сбрасываем флаг перетаскивания
+    gallery.style.transition = 'transform 0.5s ease'; // Включаем анимацию
+});
+
+gallery.addEventListener('mouseleave', () => {
+    isDragging = false; // Сбрасываем флаг перетаскивания
+    gallery.style.transition = 'transform 0.5s ease'; // Включаем анимацию
+});
+
+
 const map = L.map('map').setView([54.766363, 32.061164], 15); 
 
 
