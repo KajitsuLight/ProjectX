@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог как в Netflix</title>
+    <link rel="stylesheet" href="haha11.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 300px; /* Высота карты */
+            width: 100%; /* Ширина карты */
+            transition: transform 0.3s ease; /* Плавный переход при изменении масштаба */
+            top: 20%;
+        }
+        @media (max-width: 768px) {
+            #map {
+            top: 20%;
+            left: 25%;
+            height: 200px; /* Высота карты */
+            width: 70%; /* Ширина карты */
+            transition: transform 0.3s ease;}
+        }
+    </style>
+</head>
+<body>
+<div>
+<button class="shine" id="playButton" onclick="scrollTonext()">Z</button>
+    <audio id="audio" src="music.mp3"></audio>
+
+    <script>
+        const playButton = document.getElementById('playButton');
+        const audio = document.getElementById('audio');
+
+        playButton.addEventListener('click', () => {
+            // Проверяем, воспроизводится ли музыка
+            if (audio.paused) {
+                audio.play(); // Воспроизводим музыку
+                playButton.textContent = 'Остановить музыку'; // Меняем текст кнопки
+            } else {
+                audio.pause(); // Останавливаем музыку
+                playButton.textContent = 'Играть музыку'; // Меняем текст кнопки обратно
+            }
+        });
+    </script>
+</div>
+    <div class="container">
+        <h1>Каталог фильмов</h1>
+        <div class="gallery" id="gallery">
+    <figure>
+            <img src="image/les.jpg" alt="Фильм 1" class="thumbnail">
+        <figcaption>Подпись к изображению 1</figcaption>
+</figure>
+    <figure>
+            <img src="image/blue.jpg" alt="Фильм 2" class="thumbnail">
+        <figcaption>Подпись к изображению 1</figcaption>
+</figure>
+    <figure>
+            <img src="image/legend.jpg" alt="Фильм 3" class="thumbnail">
+        <figcaption>Подпись к изображению 1</figcaption>
+</figure>
+    <figure>         
+   <img src="image/les.jpg" alt="Фильм 1" class="thumbnail">
+        <figcaption>Подпись к изображению 1</figcaption>
+</figure>
+    <figure>
+            <img src="image/blue.jpg" alt="Фильм 2" class="thumbnail">
+        <figcaption>Подпись к изображению 1</figcaption>
+</figure>
+    <figure>
+            <img src="image/legend.jpg" alt="Фильм 3" class="thumbnail">
+        <figcaption>Подпись к изображению 1</figcaption>
+</figure>
+    <figure>
+            <img src="image/les.jpg" alt="Фильм 1" class="thumbnail">
+        <figcaption>Подпись к изображению 1</figcaption>
+</figure>
+            <img src="image/blue.jpg" alt="Фильм 2" class="thumbnail">
+            <img src="image/legend.jpg" alt="Фильм 3" class="thumbnail">
+            <img src="image/les.jpg" alt="Фильм 1" class="thumbnail">
+            <img src="image/blue.jpg" alt="Фильм 2" class="thumbnail">
+            <img src="image/legend.jpg" alt="Фильм 3" class="thumbnail">
+            <img src="image/les.jpg" alt="Фильм 1" class="thumbnail">
+            <img src="image/blue.jpg" alt="Фильм 2" class="thumbnail">
+            <img src="image/legend.jpg" alt="Фильм 3" class="thumbnail">
+            <img src="image/les.jpg" alt="Фильм 1" class="thumbnail">
+            <img src="image/blue.jpg" alt="Фильм 2" class="thumbnail">
+            <img src="image/legend.jpg" alt="Фильм 3" class="thumbnail">
+</div>
+        <button id="prevButton">Назад</button>
+        <button id="nextButton">Вперед</button>
+ <div class="containerstr">
+<button class="tetleft" id="prevButton1">←</button> 
+</div>
+ <div class="containerstr1">
+<button class="tetright" id="nextButton1">→</button> 
+</div>
+</div>
+
+
+<div class="article" id="next">
+<h1>Расширенное меню</h1>
+<i class="cart-icon" id="cartIcon"><a href="cart.html">🛒</a></i>
+<div class="grid-container">
+<div class="general">
+<img src="image/s.webp">
+<p>670 гр</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2>
+<p class="alignleft">670 гр</p>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат</p> <p class="remtr">с уникальной заправкой, а также фирменый соус.</p>
+<button class="buy"  data-price="250">
+<img src="image/basket.png">
+</button>
+<p class="price">220 ₽</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" data-name="Классическая шаурма" data-price="220">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy4">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy5">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy6">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy7">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy8">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy9">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<p class="alignleft">670 гр</p>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+<button class="buy" id="buy10">
+<img src="image/basket.png">
+</button>
+<p class="alignleft">220 ₽</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy11">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy12">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy13">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy14">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy15">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy16">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy17">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general"> <!-- 2 -->
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy18">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+<div class="general">
+<img src="image/s.webp">
+<h2>Классическая шаурма</h2><br>
+<button class="buy" id="buy19">В корзину</button>
+<p>670 гр</p><br>
+<p  class="rem">Классическая шаверма - это пшеничная тортилья, сочная куриная грудка, свежий огурец, помидор, витаминный салат с уникальной заправкой, а также фирменый соус.</p>
+</div>
+</div>	
+<div class="overlay" id="overlay"></div>
+<div class="form-container" id="formContainer">
+<form class="form1">
+<img src="image/shava.jpg" class="img-form">
+<div class="namegar">
+ <h1 class="h1stylemain">Добавки в шаверму:</h1>
+</div>
+<div class="garnir">
+ <h1 class="h1stylemaintr">Гарнир:</h1>
+<div class="garnish-options">
+    <div class="garnish-option" data-price="15"> <!---- 1 -->
+        <img src="image/sous.webp">
+<p class="price-garnir" id="itog">15 ₽</p>
+        <div class="quantity-controls">
+            <button type="button" class="decrease">-</button>
+            <input type="number" class="quantity" value="0" min="1" />
+            <button type="button" class="increase">+</button>
+        </div>
+<p class="aqua">name</p>
+<button type="button" class="add-to-cart" id="addToCart">Добавить в корзину</button> 
+    </div>
+    <div class="garnish-option" data-price="55"> <!---- 2 -->
+        <img src="image/potato.jpg" alt="Картошка">
+<p class="price-garnir" id="itog">55 ₽</p>
+        <div class="quantity-controls">
+            <button type="button" class="decrease">-</button>
+            <input type="number" class="quantity" value="0" min="1" />
+            <button type="button" class="increase">+</button>
+        </div>
+        <p class="aqua">name</p>
+    </div>
+    <div class="garnish-option" data-price="15"> <!---- 3 -->
+        <img src="image/sous.webp">
+<p class="price-garnir" id="itog">15 ₽</p>
+        <div class="quantity-controls">
+            <button type="button" class="decrease">-</button>
+            <input type="number" class="quantity" value="0" min="1" />
+            <button type="button" class="increase">+</button>
+        </div>
+<p class="aqua">name</p>
+    </div>
+        <div class="garnish-option" data-price="15"> <!---- 1 -->
+        <img src="image/sous.webp">
+<p class="price-garnir" id="itog">15 ₽</p>
+        <div class="quantity-controls">
+            <button type="button" class="decrease">-</button>
+            <input type="number" class="quantity" value="0" min="1" />
+            <button type="button" class="increase">+</button>
+        </div>
+<p class="aqua">name</p>
+<button type="button">Добавить в корзину</button> 
+    </div>
+    <div class="garnish-option" data-price="55"> <!---- 2 -->
+        <img src="image/potato.jpg" alt="Картошка">
+<p class="price-garnir" id="itog">55 ₽</p>
+        <div class="quantity-controls">
+            <button type="button" class="decrease">-</button>
+            <input type="number" class="quantity" value="0" min="1" />
+            <button type="button" class="increase">+</button>
+        </div>
+        <p class="aqua">name</p>
+    </div>
+    <div class="garnish-option" data-price="15"> <!---- 3 -->
+        <img src="image/sous.webp">
+<p class="price-garnir" id="itog">15 ₽</p>
+        <div class="quantity-controls">
+            <button type="button" class="decrease">-</button>
+            <input type="number" class="quantity" value="0" min="1" />
+            <button type="button" class="increase">+</button>
+        </div>
+<p class="aqua">name</p>
+    </div>
+</div>
+</div>
+
+<button type="submit" class="button-sell">В корзину!</button>
+
+<button type="button" class="close-button" id="closeform1">✕</button>
+</form>
+</div>
+</div>
+<div class="article2"></div>
+<div id="map">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    </div>
+    <script>
+        function scrollTonext() {
+            document.getElementById('next').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+        <script src="еу.js"></script>
+</body>
+</html>

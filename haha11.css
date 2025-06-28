@@ -1,0 +1,517 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(20, 4, 4);
+    color: white;
+    text-align: center;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Применяем ко всем элементам */
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 20px 0;
+}
+
+.gallery {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    transition: scroll-left 0.3s ease;
+    padding: 110px 0;
+    overflow-x: hidden;
+}
+
+.thumbnail {
+    width: 350px; /* Ширина миниатюры */
+    height: 225px; /* Высота миниатюры */
+    margin: 0 10px;
+    object-fit: cover;
+    transition: transform 0.1s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+.containerstr {
+    position: absolute;
+    width: 150%;
+    height: auto;
+    top: 34.6%;
+    left: -74%;
+}
+.containerstr1 {
+    position: absolute;
+    width: 150%;
+    height: auto;
+    top: 35%;
+    left: 24%;
+}
+
+.tetright {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 14%;
+    left: 83%;
+    background-color: rgba(255, 255, 0, 0.955);
+    border: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.tetright:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.555);;
+}
+
+.tetleft {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 10%;
+    left: 10%;
+    background-color: rgba(255, 255, 0, 0.955);
+    border: transparent;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tetleft:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.555);;
+}
+
+figure {
+    margin: 0; /* Убираем стандартные отступы */
+    text-align: center; /* Центрируем подпись */
+}
+button {
+    margin: 10px;
+    cursor: pointer; 
+}
+
+.shine {
+    background: linear-gradient(to bottom,rgb(243, 238, 238),rgb(26, 26, 235),rgb(219, 27, 27),red,red);    
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    border: 1px solid rgb(23, 36, 218);
+    cursor: pointer;
+    animation: wave 2s infinite; 
+    animation: gradient-animation 3s ease infinite;
+    background-size: 200% 200%;
+    outline: none;
+}
+
+.article { 
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+    background-size: cover; /* Изображение будет растягиваться, чтобы покрыть весь элемент */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Не повторяем изображение */
+    /*background: linear-gradient(to bottom, #732df7, #74a3e0,#1d8eda);*/
+}
+
+.article2 {
+    position: absolute;
+    max-height: 500vh;
+    width: 100vw;
+    max-width: 100%;
+}
+
+    .grid-container {
+        top: 5%;
+        left: 2%;
+        width: 350px;
+        height: 300px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr); /* 3 колонки одинаковой ширины */
+        grid-template-rows: auto; /* Автоматическая высота строк */
+        gap: 45px; /* Промежутки между ячейками */
+        padding: 10px; /* Отступы вокруг контейнера */
+    }
+
+    .general {
+        width: 320px;
+        height: 320px;
+        position: relative;
+        background-color: rgba(8, 8, 8, 0.8);/* Цвет фона контейнера */
+        border-radius: 26px; /* Закругленные углы */
+        padding: 20px; /* Внутренние отступы */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.general img {
+    width: 200px;
+    text-align: center;
+}
+
+.buy {
+    display: flex;
+    cursor: pointer;
+    margin-top: -1ch;
+    left: 60%;
+    position: absolute;
+    background-color: rgba(228, 5, 5, 0.541);
+    color: antiquewhite;
+    text-align: center;
+    font-size: 0.7rem;
+    width: 15ch;
+    height: 5ch;
+    padding: 5px 5px;
+    border-radius: 30px;
+    border: none; /* Убираем границу */
+}
+.buy:active {
+    background-color: rgba(228, 5, 5, 0.205);
+    width: 13ch;
+    height: 4ch;
+}
+
+.buy img {
+    object-fit: cover;
+    background-size: cover;
+    margin-left: 27px;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+    user-select: none; 
+}
+
+.completion {
+    font-size: 12px;
+    flex-grow: 1; /* Позволяем тексту занимать доступное пространство */
+    text-align: center; /* Центрируем текст внутри span */
+    letter-spacing: 0.01em;
+}
+
+.rem {
+    margin: 5px;
+    font-size: 0.8rem;
+}
+
+.remtr {
+    font-size: 0.8rem;
+    backdrop-filter: blur(5px); 
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.alignleft {
+    margin: 8px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.price {
+    margin-bottom: 15px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+
+.form-container {
+    display: none;
+    position: fixed; /* Фиксированное позиционирование */
+    top: 50%; /* Центрируем по вертикали */
+    left: 50%; /* Центрируем по горизонтали */
+    width: 850px;
+    height: 550px;
+    overflow: hidden;
+    transform: translate(-50%, -50%); /* Смещаем форму на половину её ширины и высоты */
+    background-color: rgb(153, 82, 135); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень */
+    border-radius: 12px; /* Скругление углов формы */
+    z-index: 100; /* Устанавливаем порядок отображения */
+}
+
+
+.overlay {
+    display: none; /* Скрываем затемнение по умолчанию */
+    position: fixed; /* Фиксированное позиционирование */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Затемнение */
+    z-index: 50; /* Устанавливаем порядок отображения */
+}
+
+.close {
+    background-color: aqua;
+    border-radius: 30px;
+    border: none;
+    width: 80px;
+    height: auto;
+}
+
+.close-button {
+    top: -50ch;
+    left: 39%;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    color: rgb(255, 255, 255);
+}
+
+.close-button:hover {
+    color: red;
+    position: relative;
+}
+
+.button-sell {
+    position: relative;
+    background-color: red;
+    border-radius: 30px;
+    left: 45%;
+    border: none;
+    width: 80px;
+    height: auto;
+}
+
+.img-form{
+    position: relative;
+    width: 100%;
+    height: 309px;
+    object-fit: cover;
+    border-radius: none;
+    left: 0%;
+    top: 0%;
+    margin-left: 0px;
+    padding: 5px 3px;
+    z-index: -1;
+}
+
+.garnir {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+    grid-template-rows: auto; /* Автоматическая высота строк */
+    padding: 10px;
+    top: 50%;
+    left: 0%;
+    margin-left: 0;
+    width: 430px;
+    max-height: 350px;
+    overflow-y:  auto;
+}
+
+.decrease {
+    position: relative;
+    width: 40px;
+    height: auto;
+    border-radius: 20px;
+    background-color: rgba(255, 228, 196, 0.719);
+    margin: 0;
+}
+.decrease:hover{
+    background-color: rgb(255, 228, 196);
+}
+.increase {
+    position: relative;
+    width: 40px;
+    height: auto;
+    border-radius: 20px;
+    background-color: rgba(255, 228, 196, 0.719);
+    margin: 0;
+}
+.increase:hover{
+    background-color: rgb(255, 228, 196);
+}
+
+.garnish-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+    grid-template-rows: auto; /* Автоматическая высота строк */
+    gap: 20px; /* Промежутки между ячейками */
+    margin-top: 0px;
+    width: 30px;
+    height: auto;
+    margin-left: -130px;
+}
+
+.garnish-option {
+    margin-top: 28px;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+}
+
+.garnish-option img {
+    position: relative;
+    width: 120px; /* Размер изображения */
+    height: 70px; /* Размер изображения */
+    border: 1px solid #ccc; /* Обводка */
+    border-radius: 5px; /* Скругление углов */
+}
+
+
+.quantity-controls {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    background-color: rgba(243, 243, 227, 0.589);
+    border-radius: 25px;
+    width: 120px;
+    height: 16px;
+    cursor: default;
+}
+.quantity-controls:hover {
+    background-color: rgba(238, 225, 207, 0.925);
+}
+
+.quantity {
+    width: 30px;
+    text-align: center;
+    margin: 0 5px;
+    border: none;
+    border-radius: 15px;
+}
+.h1stylemain{
+    margin-left: -400px;
+    margin-top: -3px;
+    text-align: center;
+    font-size: larger;
+    color: rgb(216, 135, 13);
+}
+.h1stylemaintr{
+    margin-left: -40px;
+    text-align: center;
+    font-size: larger;
+    color: transparent;
+    cursor: none;
+}
+.namegar {
+    top: 25%;
+    left: 20%;
+}
+.price-garnir{
+    position: absolute;
+    text-align: left;
+    font-size: 15px;
+    color: rgb(74, 15, 184);
+    margin-top: -8px;
+    margin-left: 40px;
+    padding: 0;
+}
+
+.aqua {
+    color: aqua;
+}
+
+.add-to-cart {
+    background-color: red;
+    border-radius: 20px;
+    border: transparent;
+}
+
+.cart-icon {
+    background-color: red;
+    font-size: 70px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+a {
+    flex-direction:row;
+    flex-wrap: nowrap;
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    top: 80%;
+    left: 0%;
+    height: 20vh;
+    width: auto;
+    text-align: center;
+}
+
+
+
+@media (max-width: 768px) {
+    .thumbnail {
+    width: 230px; /* Ширина миниатюры */
+    height: 155px; /* Высота миниатюры */
+    margin: 0 5px;
+    object-fit: cover;
+    transition: transform 0.1s;
+}
+    button {
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 8px;
+    cursor: pointer;
+}
+.grid-container {
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 3 колонки одинаковой ширины */
+    grid-template-rows: auto; /* Автоматическая высота строк */
+    gap: 10px; /* Промежутки между ячейками */
+    padding: 10px; /* Отступы вокруг контейнера */
+    position: relative;
+}
+
+.general {
+    width: 120px;
+    height: 100px;
+    position: relative;
+    background-color: rgba(8, 8, 8, 0.8);/* Цвет фона контейнера */
+    border: 2px solid red; /* Рамка контейнера */
+    border-radius: 26px; /* Закругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.general img {
+width: 70px;
+text-align: center;
+}
+        }
+        
+        @keyframes wave {
+            0% {
+                transform: translateY(0); /* Начальная позиция */
+            }
+            50% {
+                transform: translateY(-10px); /* Поднимаем флаг */
+            }
+            100% {
+                transform: translateY(0); /* Возвращаем на место */
+            }
+        }
+        @keyframes gradient-animation {
+            0% {
+                background-position: 0% 5%; /* Начальная позиция */
+            }
+            25% {
+                background-position: 50% 7%; /* Позиция на 25% анимации */
+            }
+            50% {
+                background-position: 0% 5%; /* Позиция в середине анимации */
+            }
+            75% {
+                background-position: 50% 0%; /* Позиция на 75% анимации */
+            }
+            100% {
+                background-position: 0% 5%; /* Возврат в начальную позицию */
+            }
+        }
